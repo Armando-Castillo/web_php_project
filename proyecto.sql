@@ -2,18 +2,16 @@ DROP DATABASE IF EXISTS proyectoWEB;
 CREATE DATABASE IF NOT EXISTS proyectoWEB;
 USE proyectoWEB;
 
---DROP TABLE IF EXISTS Administrador;
 CREATE TABLE Administrador(
   contrasenaAdmin VARCHAR(60) NOT NULL,
   noCuentaAdmin VARCHAR(15) NOT NULL,
   PRIMARY KEY (noCuentaAdmin)
 );
 
---DROP TABLE IF EXISTS Infante;
 CREATE TABLE Infante(
     cendi VARCHAR(60) NOT NULL,
-    foto VARBINARY(max) NOT NULL, --imagen (?)
-    folio INT(10) NOT NULL, --boleta
+    foto BLOB NOT NULL,
+    folio INT(10) NOT NULL,
     grupo VARCHAR(10) NOT NULL,
 
     paternoInf VARCHAR(60) NOT NULL,
@@ -24,12 +22,10 @@ CREATE TABLE Infante(
     PRIMARY KEY (folio)
 );
 
---DROP TABLE IF EXISTS Derechohabiente;
 CREATE TABLE Derechohabiente(
     paternoDer VARCHAR(60) NOT NULL,
     maternoDer VARCHAR(60) NOT NULL, 
     nombreDer VARCHAR(60) NOT NULL,
-    --DOMICILIO
     calle VARCHAR(40) NOT NULL,
     noExt INT(5) DEFAULT 0,
     noInt INT(5) DEFAULT 0,
@@ -53,12 +49,10 @@ CREATE TABLE Derechohabiente(
     PRIMARY KEY (curpDer)
 );
 
---DROP TABLE IF EXISTS Conyuge;
 CREATE TABLE Conyuge(
     paternoCon VARCHAR(60) NOT NULL,
     maternoCon VARCHAR(60) NOT NULL, 
     nombreCon VARCHAR(60) NOT NULL,
-    --DOMICILIO
     calle VARCHAR(40) NOT NULL,
     noExt INT(5) DEFAULT 0,
     noInt INT(5) DEFAULT 0,
@@ -78,7 +72,8 @@ CREATE TABLE Conyuge(
     PRIMARY KEY (nombreCon)
 );
 
---inserts
 INSERT INTO Administrador (contrasenaAdmin, noCuentaAdmin) VALUES ( 'admin123', 'adminESCOM');
 --prueba
 --INSERT INTO Infante (cendi, foto, folio, grupo, paternoInf, maternoInf, nombreInf, fechaNacimiento, curpInf) VALUES ('');
+
+--DROP TABLE IF EXISTS Administrador;
