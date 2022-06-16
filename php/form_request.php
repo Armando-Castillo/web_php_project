@@ -5,9 +5,9 @@ $db = new db();
 $db->obtenerConexion();
 
 //INFANTE data
+$folio = $_POST["folio"];
 $cendi = $_POST["cendi"];
 $foto = $_POST["foto"];
-$folio = $_POST["folio"];
 $grupo = $_POST["grupo"];
 $paternoInf = $_POST["paternoInf"];
 $maternoInf = $_POST["maternoInf"];
@@ -15,7 +15,7 @@ $nombreInf = $_POST["nombreInf"];
 $fechaNacimiento = $_POST["fechaNacimiento"];
 $curpInf = $_POST["curpInf"];
 
-$infante = $db->retrieveInfante($cendi);
+// $infante = $db->retrieveInfante($folio);
 
 // session_start();
 // if(!empty($al)){
@@ -41,9 +41,9 @@ $infante = $db->retrieveInfante($cendi);
 // }
 
 $res = $db->createInfante(
+  $folio,
   $cendi,
   $foto,
-  $folio,
   $grupo,
   $paternoInf,
   $maternoInf,
@@ -63,7 +63,7 @@ if (!empty($_SESSION["admin"])) {
 } else {
   if ($res) {
     $_SESSION["active"] = true;
-    $_SESSION["idUser"] = $cendi;
+    $_SESSION["idUser"] = $folio;
     $_SESSION["modal"] = "success";
     //header("Location: ../pages/alumno.php");
   } else {

@@ -31,9 +31,9 @@ class db
   //////////////////// Infante /////////////
 
   public function createInfante(
+    $folio,
     $cendi,
     $foto,
-    $folio,
     $grupo,
     $paternoInf,
     $maternoInf,
@@ -41,8 +41,8 @@ class db
     $fechaNacimiento,
     $curpInf
   ) {
-    $consulta = "INSERT INTO Infante (cendi, foto, folio, grupo, paternoInf, maternoInf, nombreInf, fechaNacimiento, curpInf) 
-		VALUES ('$cendi', '$foto', '$folio', '$grupo', '$paternoInf', '$maternoInf', '$nombreInf', '$fechaNacimiento', '$curpInf')";
+    $consulta = "INSERT INTO Infante (folio, cendi, foto, grupo, paternoInf, maternoInf, nombreInf, fechaNacimiento, curpInf) 
+		VALUES ('$folio', '$cendi', '$foto', '$grupo', '$paternoInf', '$maternoInf', '$nombreInf', '$fechaNacimiento', '$curpInf')";
 
     $resultado = mysqli_query($this->conexion, $consulta);
     if ($resultado) {
@@ -78,9 +78,9 @@ class db
     return $rows;
   }
 
-  public function retrieveInfante($cendi)
+  public function retrieveInfante($folio)
   {
-    $consulta = "SELECT * FROM Infante WHERE cendi='$cendi'";
+    $consulta = "SELECT * FROM Infante WHERE cendi='$folio'";
     $resultado = mysqli_query($this->conexion, $consulta);
     $columna = mysqli_fetch_array($resultado);
     return $columna;
@@ -97,9 +97,9 @@ class db
     $fechaNacimiento,
     $curpInf
   ) {
-    $consulta = "UPDATE Infante SET foto = '$foto', folio = '$folio', grupo = '$grupo', paternoInf = '$paternoInf',
+    $consulta = "UPDATE Infante SET foto = '$foto', cendi = '$cendi', grupo = '$grupo', paternoInf = '$paternoInf',
 					maternoInf = '$maternoInf', nombreInf = '$nombreInf', fechaNacimiento = '$fechaNacimiento', curpInf = '$curpInf',
-          WHERE cendi = '$cendi'";
+          WHERE folio = '$folio'";
     $resultado = mysqli_query($this->conexion, $consulta);
     if ($resultado) {
       return true;
@@ -108,9 +108,9 @@ class db
     }
   }
 
-  public function deleteInfante($cendi)
+  public function deleteInfante($folio)
   {
-    $consulta = "DELETE FROM Infante WHERE cendi='$cendi'";
+    $consulta = "DELETE FROM Infante WHERE folio='$folio'";
     $resultado = mysqli_query($this->conexion, $consulta);
     $columna = mysqli_fetch_array($resultado);
     return $columna;
