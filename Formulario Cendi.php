@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -32,7 +33,7 @@
 </head>
 
 <body>
-    <form action="" method="POST" id="form">
+    <form action="./php/form_request.php" method="POST" id="form">
         <div>
             <h1>Ficha de inscripción</h1>
             <div>
@@ -51,34 +52,34 @@
             </div>
             <div>
                 <label for="img0">Foto del niño o de la niña:</label>
-                <input type="file" id="img0" name="img0" accept="image/*">
+                <input type="file" id="foto" name="foto" accept="image/*">
             </div>
             <div>
                 <label for="">Folio (boleta): </label>
-                <input type="text" name="" id="boleta" maxlength="10">
+                <input type="text" name="folio" id="folio" maxlength="10">
             </div>
             <div>
                 <label for="grupo">Grupo: </label>
-                <input type="text" id="grupo" />
+                <input type="text" id="grupo" name="grupo"/>
             </div>
         </div>
         <h2>DATOS DEL NIÑO O DE LA NIÑA:</h2>
         <div>
             <div>
                 <label for="ape1">Primer Apellido: </label>
-                <input type="text" id="ape1" />
+                <input type="text" id="paternoInf" name="paternoInf" />
             </div>
             <div>
                 <label for="ape2">Segundo Apellido: </label>
-                <input type="text" id="ape2" />
+                <input type="text" id="maternoInf" name="maternoInf" />
             </div>
             <div>
                 <label for="nombres">Nombre (s): </label>
-                <input type="text" id="nombres" />
+                <input type="text" id="nombreInf" name="nombreInf" />
             </div>
             <div>
                 <label for="nacimiento">Fecha de nacimiento: </label>
-                <input type="date" id="nacimiento" name="nacimiento" />
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" />
             </div>
             <div>
                 <label for="edad_anos">Edad en años:</label>
@@ -88,10 +89,10 @@
             </div>
             <div>
                 <label for="curp">CURP: </label>
-                <input type="text" id="curp" maxlength="18" />
+                <input type="text" id="curpInf" name="curpInf" maxlength="18" />
             </div>
         </div>
-        <h2>DATOS DEL O LA DERECHOHABIENTE:</h2>
+        <!-- <h2>DATOS DEL O LA DERECHOHABIENTE:</h2>
         <div>
             <div>
                 <label for="dape1">Primer Apellido: </label>
@@ -404,7 +405,7 @@
                 <label for="fechaarch">Fecha de archivo: </label>
                 <input type="text" id="fechaarch" disabled />
             </div>
-        </div>
+        </div> -->
         <input type="submit" value="Enviar información">
         <input type="reset" value="Borrar información">
         <p class="warnings" id="warnings"></p>
